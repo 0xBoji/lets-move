@@ -5,6 +5,8 @@ module task4::my_game{
     use sui::coin::{Self, Coin};
     use sui::random::{Self, Random};
     use sui::transfer::{share_object, public_transfer, transfer};
+    use sui::object::{Self, UID};
+    use sui::tx_context::TxContext;
     // >>>>>>>>>> End Imports <<<<<<<<<<
 
     // >>>>>>>>>> Start Errors handling <<<<<<<<<<
