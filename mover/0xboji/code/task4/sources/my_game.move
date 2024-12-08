@@ -1,6 +1,6 @@
 module task4::my_game{
     // >>>>>>>>>> Start Imports <<<<<<<<<<
-    use my_coin::ming_xx_faucet_coin::MING_XX_FAUCET_COIN;
+    use task2::boji_coin_faucet::BOJI_COIN_FAUCET;
     use sui::balance::{Self, Balance};
     use sui::coin::{Self, Coin};
     use sui::random::{Self, Random};
@@ -12,9 +12,9 @@ module task4::my_game{
     // >>>>>>>>>> End Errors handling <<<<<<<<<<
 
     // >>>>>>>>>> Start Structs <<<<<<<<<<
-    public struct Ming_XX_Game has key {
+    public struct Boji_Game has key {
         id: UID,
-        val: Balance<MING_XX_FAUCET_COIN>,
+        val: Balance<BOJI_COIN_FAUCET>,
     }
 
     public struct AdminCap has key {
@@ -24,7 +24,7 @@ module task4::my_game{
 
     // >>>>>>>>>> Start INIT Functions <<<<<<<<<<
     fun init(ctx: &mut TxContext) {
-        let game = Ming_XX_Game {
+        let game = Boji_Game {
             id: object::new(ctx),
             val: balance::zero(),
         };
@@ -39,21 +39,21 @@ module task4::my_game{
     // >>>>>>>>>> End INIT Functions <<<<<<<<<<
 
     // >>>>>>>>>> Start Public Functions <<<<<<<<<<
-    public entry fun DepositCoin(game: &mut Ming_XX_Game, coin: Coin<MING_XX_FAUCET_COIN>,_ctx:&mut TxContext) {
+    public entry fun DepositCoin(game: &mut Boji_Game, coin: Coin<BOJI_COIN_FAUCET>,_ctx:&mut TxContext) {
         game.val.join(coin::into_balance(coin));
     }
 
-    public entry fun WithdrawCoin(_: &AdminCap, game: &mut Ming_XX_Game, value: u64, ctx: &mut TxContext) {
+    public entry fun WithdrawCoin(_: &AdminCap, game: &mut Boji_Game, value: u64, ctx: &mut TxContext) {
         let out_balance = game.val.split(value);
         let out_coin = coin::from_balance(out_balance, ctx);
         public_transfer(out_coin, ctx.sender());
     }
 
     entry fun play(
-        game: &mut Ming_XX_Game,
+        game: &mut Boji_Game,
         rnd: &Random,
         guess: bool,
-        in_coin: Coin<MING_XX_FAUCET_COIN>,
+        in_coin: Coin<BOJI_COIN_FAUCET>,
         ctx: &mut TxContext
     ) {
         let mut gen = random::new_generator(rnd, ctx);
