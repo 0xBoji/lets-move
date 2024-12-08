@@ -40,6 +40,14 @@ module task4::my_game{
     }
     // >>>>>>>>>> End INIT Functions <<<<<<<<<<
 
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>           >>>>>>>>>>
+    // >>>>>>>>  SETTERS  >>>>>>>>>>
+    // >>>>>>>>           >>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
     // >>>>>>>>>> Start Public Functions <<<<<<<<<<
     public entry fun DepositCoin(game: &mut Boji_Game, coin: Coin<BOJI_COIN_FAUCET>,_ctx:&mut TxContext) {
         game.val.join(coin::into_balance(coin));

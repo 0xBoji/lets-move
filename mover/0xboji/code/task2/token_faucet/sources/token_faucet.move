@@ -27,6 +27,15 @@ module task2::boji_coin_faucet{
         transfer::public_share_object(coinMetadata);
     }
 
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>           >>>>>>>>>>
+    // >>>>>>>>  SETTERS  >>>>>>>>>>
+    // >>>>>>>>           >>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    
+    // >>>>>>>>>> Start Public Functions <<<<<<<<<<
     public entry fun mint<T>(
         cap: &mut TreasuryCap<T>, 
         value: u64,
@@ -45,4 +54,5 @@ module task2::boji_coin_faucet{
         input_coin: Coin<T>,){
         coin::burn<T>(cap, input_coin);
     }
+    // >>>>>>>>>> End Public Functions <<<<<<<<<<
 }

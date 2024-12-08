@@ -48,6 +48,14 @@ module task5::my_swap{
         transfer::share_object(bank)
     }
 
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>           >>>>>>>>>>
+    // >>>>>>>>  SETTERS  >>>>>>>>>>
+    // >>>>>>>>           >>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    // >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
     public fun set_rate<A, B>(_ :&AdminCap, bank: &mut Bank<A, B>, rate: u64, _ctx: &mut TxContext){
         bank.rate = rate
     }
